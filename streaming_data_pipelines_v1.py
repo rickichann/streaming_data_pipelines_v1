@@ -32,7 +32,8 @@ def pipeline_peformance(x):
 
 conf_source = 'mysql+pymysql://username:password@ipaddress:port/dbname'
 conf_destination = 'postgresql://username:password@ipaddress:port/dbname'
-table_name = 'transaction_table'
+source_table_name = 'transaction_table'
+destination_table_name = 'wh_transaction_table'
 unique_constraint_column = 'transaction_id'
 sync_date = 'write_date' #dtu, write_date  
 
@@ -52,7 +53,7 @@ con_dest = connect_dest.connect()
 
 
 # last write_date
-last_write_date = con_source.execute('SELECT MAX(write_date) FROM {}'.format(table_name)).scalar()
+last_write_date = con_source.execute('SELECT MAX(write_date) FROM {}'.format(source_table_name)).scalar()
 ld = "'"+str(last_write_date)+"'"
 
 
@@ -68,7 +69,7 @@ df = pd.read_sql_query('''
     FROM {}
     WHERE {} >= {}
     
-'''.format(table_name,sync_date,ld),con_source)
+'''.format(source_table_name,sync_date,ld),con_source)
 
 # drop_columns (optional)
 df.drop(columns=['id'],inplace=True)
@@ -114,7 +115,7 @@ for row in df.itertuples(index=False):
                              UPDATE
                              SET{}
                              
-                             '''.format(table_name,table_str,s_str,unique_constraint_column,excluded_str).replace("'"," "),
+                             '''.format(destination_table_name,table_str,s_str,unique_constraint_column,excluded_str).replace("'"," "),
                           (row))
     xx += 1
 print('Query OK, {} row affected'.format(xx))
