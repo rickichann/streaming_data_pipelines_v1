@@ -70,6 +70,9 @@ df = pd.read_sql_query('''
     
 '''.format(table_name,sync_date,ld),con_source)
 
+# drop_columns (optional)
+df.drop(columns=['id'],inplace=True)
+
 
 # In[422]:
 
@@ -90,7 +93,7 @@ if len(df) == 1:
 # - 
 
 
-# In[424]:
+# In[ ]:
 
 
 df.head()
