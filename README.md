@@ -11,11 +11,15 @@ ALTER TABLE transaction_table ADD CONSTRAINT constraint_transaction_table UNIQUE
 ```
 conf_source = 'mysql+pymysql://username:password@ipaddress:port/dbname'
 conf_destination = 'postgresql://username:password@ipaddress:port/dbname'
-table_name = 'table_name'
+source_table_name = 'table_name'
+destination_table_name = 'wh_transaction_table'
 unique_constraint_column = 'transaction_id'
 sync_date = 'write_date' #dtu, write_date  
 ```
 
-- conf_source : source database configuration
-- conf_destination : destination database configuration
-- table_name : table name 
+- conf_source : source database configuration.
+- conf_destination : destination database configuration.
+- source_table_name : table name *source db.
+- destination_table_name : table name *destination db.
+- unique_constraint_column : the unique column is usually the primary key.
+- sync_date : column used to store time information when data is inserted or data changes occur
