@@ -53,7 +53,7 @@ con_dest = connect_dest.connect()
 
 
 # last write_date
-last_write_date = con_source.execute('SELECT MAX(write_date) FROM {}'.format(source_table_name)).scalar()
+last_write_date = con_dest.execute('SELECT MAX(write_date) FROM {}'.format(destination_table_name)).scalar()
 ld = "'"+str(last_write_date)+"'"
 
 
