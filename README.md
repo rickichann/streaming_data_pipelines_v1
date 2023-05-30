@@ -38,5 +38,5 @@ sync_date = 'write_date' #dtu, write_date
 Notes :
 Convert notebook (.ipynb) to .py file
 ```
-jupyter nbconvert --to script 'my-notebook.ipynb'
+jupyter nbconvert --to script 'streaming_data_pipelines_v1.ipynb'
 ```
