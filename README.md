@@ -17,6 +17,9 @@ unique_constraint_column = 'transaction_id'
 sync_date = 'write_date' #dtu, write_date  
 ```
 
+3. For the first time running the pipeline, change the write_date manually (according to the data you want to retrieve), and when finished, change it back to the beginning.
+![image](https://github.com/rickichann/streaming_data_pipelines_v1/assets/53082147/bb8ea9fb-2e6f-43de-a8a4-ba22667c089b)
+
 - conf_source : source database configuration.
 - conf_destination : destination database configuration.
 - source_table_name : table name *source db.
