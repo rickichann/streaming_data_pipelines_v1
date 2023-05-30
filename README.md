@@ -1,5 +1,9 @@
 # streaming_data_pipelines_v1
 
+
+<img width="732" alt="image" src="https://github.com/rickichann/streaming_data_pipelines_v1/assets/53082147/69260da3-6c57-40e4-af60-15bf648d5131">
+
+
 1. Run this query !, to add a unique constraint on unique columns:
 ```
 ALTER TABLE transaction_table ADD CONSTRAINT constraint_transaction_table UNIQUE (transaction_id);
