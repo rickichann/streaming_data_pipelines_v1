@@ -1,4 +1,4 @@
-# streaming_data_pipelines_v1
+# Streaming Data Pipelines V1
 
 
 
@@ -34,3 +34,9 @@ sync_date = 'write_date' #dtu, write_date
 - destination_table_name : table name *destination db.
 - unique_constraint_column : the unique column is usually the primary key.
 - sync_date : column used to store time information when data is inserted or data changes occur
+
+Notes :
+Convert notebook (.ipynb) to .py file
+```
+jupyter nbconvert --to script 'my-notebook.ipynb'
+```
