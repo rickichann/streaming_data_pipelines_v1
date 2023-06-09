@@ -24,7 +24,9 @@ def product_cummulative(query,conn,years):
 
 query = ''' SELECT
                 *
-                FROM '''
+                FROM table_name
+                WHERE EXTRACT(year FROM transaction_date) = '{}'
+                '''
 
 for i in years:
     product_cummulative(query,CONNECTION_URI,i).write_parquet('./parquet_data/product_cummulative/program_{}.parquet'.format(i))
